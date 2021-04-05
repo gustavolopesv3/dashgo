@@ -12,6 +12,7 @@ import {
   Checkbox,
   Td,
   Text,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { Header } from '../../components/Header';
 import { SideBar } from '../../components/SideBar';
@@ -19,12 +20,17 @@ import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import { Pagination } from '../../components/Pagination';
 
 export default function UserList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Box>
       <Header />
       <Flex m="100%" my="6" maxWidth={1280} mx="auto" px="6">
         <SideBar />
-        <Box flex="1" borderRadius={8} bg="gray.800" p="8">
+        <Box flex="1" borderRadius={8} bg="gray.800" p={['4', '4', '6']}>
           <Flex mb="8" justifyContent="space-between" align="center">
             <Heading size="lg" fontWeight="normal">
               Usuarios
@@ -46,7 +52,8 @@ export default function UserList() {
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>Usuario</Th>
-                <Th>Data de Cadastro</Th>
+                {isWideVersion && <Th>Data de Cadastro</Th>}
+
                 <Th></Th>
               </Tr>
             </Thead>
@@ -63,7 +70,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Th>Data de Cadastro</Th>}
                 <Td>
                   {' '}
                   <Button
@@ -89,9 +96,8 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Th>Data de Cadastro</Th>}
                 <Td>
-                  {' '}
                   <Button
                     as="a"
                     size="sm"
@@ -115,9 +121,8 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Th>Data de Cadastro</Th>}
                 <Td>
-                  {' '}
                   <Button
                     as="a"
                     size="sm"
@@ -141,9 +146,8 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Th>Data de Cadastro</Th>}
                 <Td>
-                  {' '}
                   <Button
                     as="a"
                     size="sm"
